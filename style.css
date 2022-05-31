@@ -1,0 +1,573 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Mono&family=Poppins:wght@300&family=Roboto:wght@100&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+    list-style-type: none;
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+:root {
+    --main-color: #FF3D00;
+    --bg-color: #000000;
+    --text-color: #FFFFFF;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    /* height: 2000px; */
+}
+
+
+/* nav bar  */
+
+header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 60px;
+    box-shadow: 0 0px 5px 1px rgba(102, 99, 99, 0.5);
+    z-index: 5;
+    background-color: var(--bg-color);
+    filter: brightness(1.2);
+    /* opacity: 0.9; */
+}
+
+header a {
+    color: var(--text-color);
+}
+
+.movie-logo {
+    color: var(--text-color);
+    font-weight: 900;
+    font-size: 1.2rem;
+    display: flex;
+    column-gap: 5px;
+    color: var(--main-color);
+}
+
+.movie-logo i {
+    font-size: 30px;
+}
+
+.movie-logo span:first-letter {
+    color: cyan;
+}
+
+.movie-logo span {
+    margin-top: 4px;
+    font-variant: small-caps;
+}
+
+.menu-container {
+    font-size: 12px;
+    display: flex;
+    column-gap: 40px;
+    text-shadow: 0px 0.5px 2px red;
+}
+
+.menu-container a {
+    position: relative;
+}
+
+.menu-container li a::after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--main-color);
+    transition: .5s;
+    transition-timing-function: ease-in-out;
+}
+
+.menu-container a:hover::after,
+.menu-container .active::after {
+    width: 100%;
+}
+
+.btn-sign-in,
+.play-btn-left,
+.plus-btn,
+.send-btn {
+    padding: 5px 20px;
+    color: var(--text-color);
+    border: 2px solid var(--main-color);
+    border-radius: 20%;
+    transition: .5s;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-sign-in:hover,
+.play-btn-left:hover,
+.plus-btn:hover {
+    background-color: var(--main-color);
+    color: var(--text-color);
+    /* outline: none; */
+}
+
+
+/* image cover */
+
+.container {
+    width: 100%;
+    height: 700px;
+    position: relative;
+}
+
+.container img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0.6;
+    filter: brightness(1.5);
+}
+
+.bxs-star {
+    color: gold;
+    padding-right: 5px;
+}
+
+.action,
+.duration,
+.cover-text p {
+    font-size: 12px;
+    color: rgb(191, 187, 183);
+}
+
+.cover-text {
+    position: relative;
+    top: 25%;
+    padding-left: 150px;
+}
+
+.cover-text .duration {
+    position: absolute;
+    top: -15px;
+    font-size: 14px;
+}
+
+.cover-text .movie-title {
+    margin: 2% 0;
+    font-weight: 700;
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+.cover-text p {
+    width: 45%;
+    font-size: 13px;
+}
+
+.btn-gp {
+    position: relative;
+    margin-top: 5%;
+    font-size: 1.1rem;
+    height: 100%;
+}
+
+.plus-btn {
+    border: 2px solid #60E218;
+    margin-left: 10px;
+}
+
+.bx-play,
+.bx-plus {
+    font-weight: 900;
+}
+
+
+/* .play-btn-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+.bx-play-circle {
+    position: fixed;
+    right: 60px;
+    bottom: 15%;
+    color: var(--main-color);
+    font-size: 3rem;
+    transition: 0.5s;
+    z-index: 3;
+}
+
+.bx-play-circle:hover {
+    transform: scale(1.2);
+    filter: brightness(1.3);
+}
+
+
+/* movie card */
+
+.movie-container {
+    max-width: 968px;
+    margin: 10px auto;
+}
+
+.header {
+    font-weight: 900;
+    font-size: 1.5rem;
+    text-align: start;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    border-bottom: 2px solid var(--main-color);
+}
+
+.movie-card-container {
+    max-width: auto;
+    margin: 0px auto 0px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, auto));
+    gap: 1rem;
+}
+
+.movie-card {
+    width: 100%;
+}
+
+
+/* .movie-card .img-card {
+    height: 270px;
+} */
+
+.movie-card .img-card img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 10px;
+    filter: brightness(0.85);
+    box-shadow: 0px 0px 5px 1px rgba(151, 148, 148, 0.901);
+    transition: .5s;
+}
+
+.movie-card .img-card img:hover {
+    filter: brightness(1.15);
+    transform: translateY(-5px);
+}
+
+.movie-card .title {
+    margin: 5px 0px 10px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.movie-card small {
+    font-size: 12px;
+    color: rgb(191, 187, 183);
+}
+
+
+/* contact form */
+
+.contact-container {
+    max-width: 968px;
+    margin: 50px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-container h2 {
+    margin-bottom: 10px;
+    font-weight: 900;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
+.contact-container .contact-form {
+    display: flex;
+    justify-content: center;
+    background-color: var(--bg-color);
+    padding: 12px;
+    border-radius: 0.5rem;
+    border: 2px solid var(--text-color);
+    filter: brightness(0.85);
+    box-shadow: 0px 0px 5px 1px rgba(151, 148, 148, 0.901);
+}
+
+.contact-container .contact-form .email {
+    width: 60%;
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.contact-container .contact-form .email::placeholder {
+    color: var(--text-color);
+}
+
+.contact-container .contact-form .send-btn {
+    background-color: var(--bg-color);
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+.contact-container .contact-form .send-btn:hover {
+    background-color: var(--main-color);
+    color: var(--text-color);
+}
+
+
+/* social content  */
+
+.social-content {
+    max-width: 968px;
+    margin: 25px auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.social-content .social-container {
+    display: flex;
+    gap: 30px;
+    padding: 6px 0px;
+}
+
+.social-content .social-container i {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+}
+
+.social-content .social-container .bx {
+    border: 2px solid var(--main-color);
+    text-align: center;
+    border-radius: 50%;
+    transition: 0.5s;
+}
+
+.social-content .social-container .bx:hover {
+    transform: scale(1.2);
+    filter: brightness(1.3);
+}
+
+.social-content .movie-logo {
+    display: flex;
+    align-items: center;
+}
+
+.social-content .movie-logo span {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+
+/* footer copyright  */
+
+.copy-right {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    filter: brightness(1.2);
+    box-shadow: 0px 0px 5px 1px rgba(151, 148, 148, 0.901);
+}
+
+.copy-right span {
+    font-variant: small-caps;
+}
+
+.copy-right small {
+    font-size: 13px;
+    color: rgb(191, 187, 183);
+    opacity: 0.6;
+}
+
+
+/* custom scrollbar */
+
+
+/* width */
+
+html::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+    transition: .5s;
+}
+
+
+/* track  */
+
+html::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0.3);
+    background: var(--bg-color);
+    border-radius: 20px;
+}
+
+
+/* Handle */
+
+html::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+    border-radius: 20px;
+}
+
+
+/* hover  */
+
+html::-webkit-scrollbar-thumb:hover {
+    background: cyan;
+}
+
+
+/* layout responsive  */
+
+@media (max-width: 1080px) {
+    header .menu-container {
+        display: none;
+    }
+    .container .cover-text {
+        padding-left: 100px;
+    }
+    .container .movie-title {
+        font-size: 2rem;
+    }
+    .btn-sign-in,
+    .play-btn-left,
+    .plus-btn,
+    .send-btn {
+        padding: 5px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    .movie-container .header,
+    .contact-container h2 {
+        font-size: 1.2rem;
+    }
+    .movie-container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 980px) {
+    .contact-container .contact-form .email {
+        padding: 0 auto;
+    }
+}
+
+@media (max-width: 800px) {
+    .container .cover-text {
+        padding-left: 70px;
+    }
+    .container .movie-title {
+        font-size: 1.5rem;
+    }
+    .btn-sign-in,
+    .play-btn-left,
+    .plus-btn,
+    .send-btn {
+        padding: 5px 12px;
+        font-size: 0.7rem;
+    }
+    .movie-container .header,
+    .contact-container h2 {
+        font-size: 1.1rem;
+    }
+    .cover-text p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width:550px) {
+    .container .cover-text {
+        padding-left: 55px;
+    }
+    .container .movie-title {
+        font-size: 1.3rem;
+    }
+    .social-content {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 1rem;
+    }
+    .action,
+    .duration,
+    .cover-text p {
+        font-size: 11px;
+    }
+    header {
+        padding: 15px 4%;
+    }
+    header span {
+        font-size: 15.5px;
+    }
+    .btn-sign-in,
+    .play-btn-left,
+    .plus-btn,
+    .send-btn {
+        padding: 4px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .container .cover-text {
+        padding-left: 40px;
+    }
+    .container .movie-title {
+        font-size: 1rem;
+    }
+    .social-content {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 1rem;
+    }
+    .action,
+    span .duration,
+    .cover-text p {
+        font-size: 11px;
+    }
+    header {
+        padding: 15px 4%;
+    }
+    header span {
+        font-size: 15.5px;
+    }
+    .btn-sign-in,
+    .play-btn-left,
+    .plus-btn,
+    .send-btn {
+        padding: 3px 10px;
+        font-size: 0.6rem;
+    }
+    .social-content .movie-logo span {
+        font-size: 1.1rem;
+    }
+    .social-content {
+        row-gap: 0.8rem;
+    }
+    .social-content .social-container {
+        display: flex;
+        gap: 16px;
+        padding: 4px 0px;
+    }
+    .movie-logo i {
+        font-size: 26px;
+    }
+    .contact-container .contact-form {
+        width: 80%;
+    }
+}
